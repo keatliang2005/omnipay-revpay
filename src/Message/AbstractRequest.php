@@ -6,6 +6,15 @@ use Omnipay\Common\Message\ResponseInterface;
 
 abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
 {
+    public function setVerifySignature($parameter)
+    {
+        return $this->setParameter('verify_signature', $parameter);
+    }
+
+    public function getVerifySignature()
+    {
+        return $this->getParameter('verify_signature');
+    }
 
     public function setRevPayMerchantId($parameter)
     {

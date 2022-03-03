@@ -12,7 +12,7 @@ class CompletePurchaseResponse extends AbstractResponse
     {
         parent::__construct($request, $data);
 
-        if($this->checksumSignature() !== $this->getKey('Signature')){
+        if($this->request->getVerifySignature() && ($this->checksumSignature() !== $this->getKey('Signature'))){
             throw new InvalidRequestException('revPay callback invalid signature');
         }
     }

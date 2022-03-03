@@ -12,6 +12,7 @@ class Gateway extends AbstractGateway
     public function getDefaultParameters()
     {
         return [
+            'verify_signature'    => true,
             'Revpay_Merchant_ID'  => '',
             'revpay_merchant_key' => '',
             'Payment_ID'          => '2', // default payment method if not provide
@@ -19,6 +20,16 @@ class Gateway extends AbstractGateway
             'Return_URL'          => '',
             'environment'         => 'production'
         ];
+    }
+
+    public function setVerifySignature($parameter)
+    {
+        return $this->setParameter('verify_signature', $parameter);
+    }
+
+    public function getVerifySignature()
+    {
+        return $this->getParameter('verify_signature');
     }
 
     public function setRevPayMerchantId($parameter)
